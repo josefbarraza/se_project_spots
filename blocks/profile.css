@@ -64,12 +64,6 @@
   opacity: 100%;
 }
 
-.profile__pen {
-  width: 13.67px;
-  height: 13.67px;
-  border: 2.28px;
-}
-
 .profile__add-button {
   margin-left: auto;
   border: none;
@@ -89,12 +83,6 @@
 
 .profile__add-button:hover {
   opacity: 80%;
-}
-
-.profile__plus-sign {
-  width: 13.67px;
-  height: 13.67px;
-  border: 2.28px;
 }
 
 @media screen and (max-width: 627px) {
