@@ -16,3 +16,7 @@ Spots social media site is the third project for the Software Engineering progra
 Deployment link
 
 https://josefbarraza.github.io/se_project_spots/
+
+Video link
+
+https://drive.google.com/file/d/1OnrlUHEAUjTw72W7fB5tJCUb-H8X9vwf/view?usp=drive_link
