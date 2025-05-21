@@ -1,5 +1,24 @@
 .card {
   max-width: 413px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__delete-button {
+  background-image: url(../images/deletedefault.svg);
+  height: 32px;
+  width: 32px;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card__delete-button:hover {
+  background-image: url(../images/deletehover.svg);
+  cursor: pointer;
 }
 
 .card__image {
@@ -43,6 +62,15 @@
 .card__like-button:hover {
   opacity: 100;
   cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../images/likeactive.svg);
+  opacity: 100%;
+}
+
+.card__like-button_active:hover {
+  opacity: 40%;
 }
 
 @media screen and (max-width: 627px) {
