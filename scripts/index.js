@@ -42,6 +42,7 @@ const editProfileCloseButton =
 const newPostButton = document.querySelector(".profile__add-button");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseButton = newPostModal.querySelector(".modal__close-btn");
+const cardSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 const addCardFormElement = newPostModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector(
@@ -108,6 +109,11 @@ editProfileButton.addEventListener("click", function () {
   editProfileNameInput.value = profileName.textContent;
   editProfileDescriptionInput.value = profileDescription.textContent;
   openModal(editProfileModal);
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, profileDescription],
+    settings
+  );
 });
 
 editProfileCloseButton.addEventListener("click", function () {
@@ -130,7 +136,8 @@ function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = editProfileNameInput.value;
   profileDescription.textContent = editProfileDescriptionInput.value;
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
+  disableButton(cardSubmitBtn, settings);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
@@ -145,9 +152,9 @@ function handleAddCardSubmit(evt) {
 
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-  closeModal(newPostModal);
-
   addCardFormElement.reset();
+  disableButton(cardSubmitBtn, settings);
+  closeModal(newPostModal);
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
@@ -159,4 +166,21 @@ initialCards.forEach(function (item) {
 
 document.querySelectorAll(".modal").forEach((modal) => {
   closeModal(modal);
+});
+
+window.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape" || evt.key === "Esc") {
+    const activeModal = document.querySelector(".modal_is-opened");
+    if (activeModal) {
+      closeModal(activeModal);
+    }
+  }
+});
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  });
 });

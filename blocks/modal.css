@@ -80,6 +80,7 @@
   font-size: 16px;
   line-height: 1.1;
   color: #212121b2;
+  display: block;
 }
 
 .modal__input {
@@ -95,8 +96,19 @@
   line-height: 1;
 }
 
+.modal__input_type_error {
+  border: 1px solid #ff000099;
+  opacity: 60%;
+}
+
 .modal__input:hover {
   cursor: pointer;
+}
+
+.modal__error {
+  display: block;
+  color: #ff0000b2;
+  margin-top: 8px;
 }
 
 .modal__label::placeholder {
@@ -114,6 +126,10 @@
   font-weight: 500;
   line-height: 1;
   box-sizing: border-box;
+}
+
+.modal__submit-btn_inactive {
+  opacity: 50%;
 }
 
 .modal__submit-btn:hover {
