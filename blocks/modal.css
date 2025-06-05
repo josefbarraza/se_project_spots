@@ -130,6 +130,7 @@
 
 .modal__submit-btn_inactive {
   opacity: 50%;
+  pointer-events: none;
 }
 
 .modal__submit-btn:hover {
